@@ -1,0 +1,3 @@
+[submodule "assets/dashatars"]
+	path = assets/dashatars
+	url = https://github.com/intuosol/dashatars.git
