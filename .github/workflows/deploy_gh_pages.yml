@@ -16,7 +16,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: "recursive"
+
+      - name: Debug directory structure before setup
+        run: |
+          echo "Checking initial directory structure..."
+          ls -la
+          ls -la assets/ || echo "No assets directory found yet"
 
       - name: "Install Flutter and Dart SDK"
         uses: subosito/flutter-action@v2
@@ -30,13 +39,26 @@ jobs:
       - name: "Flutter enable Web"
         run: flutter config --enable-web
 
+      - name: "Get dependencies for package"
+        run: flutter pub get
+
+      - name: "Debug asset structure after package dependencies"
+        run: |
+          echo "Checking assets after package dependencies..."
+          ls -la
+          ls -la assets/ || echo "No assets directory yet"
+          ls -la assets/dashatars/ || echo "No dashatars directory yet"
+          ls -la assets/dashatars/Designer/ || echo "No Designer directory yet"
+          ls -la assets/dashatars/Developer/ || echo "No Developer directory yet"
+          ls -la assets/dashatars/Manager/ || echo "No Manager directory yet"
+
       - name: "Flutter clean before build"
         run: |
           flutter clean
           cd example
           flutter clean
 
-      - name: "Get dependencies"
+      - name: "Get dependencies for example"
         run: flutter pub get
         working-directory: example
 
@@ -47,6 +69,13 @@ jobs:
         run: |
           cd example
           flutter create --platforms=web .
+
+      - name: "Debug pubspec.yaml content"
+        run: |
+          echo "Main package pubspec.yaml:"
+          cat pubspec.yaml
+          echo "Example pubspec.yaml:"
+          cat example/pubspec.yaml
 
       - name: "Build web app"
         run: |
