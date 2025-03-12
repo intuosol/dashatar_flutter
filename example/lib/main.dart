@@ -1,6 +1,7 @@
 import 'package:dashatar_flutter_example/tabs/customizer_tab.dart';
 import 'package:dashatar_flutter_example/tabs/gallery_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:intuosol_design_system/intuosol_design_system.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dashatar Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+      theme: IntuoSolTheme.lightTheme,
       home: const MyHomePage(),
     );
   }
@@ -33,10 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashatar Flutter Demo'),
-        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-      ),
+      appBar: AppBar(title: const Text('Dashatar Flutter Demo')),
       body: DefaultTabController(
         length: 2,
         child: Column(
@@ -50,6 +45,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: IntuoSolButtons.floatingAboutPackage(
+        context: context,
+        packageName: 'Dashatar Flutter',
+        description:
+            'A Flutter package that provides an API for using Dash avatars (Dashatars) in Flutter projects.',
+        pubDevLink: 'https://pub.dev/packages/dashatar_flutter',
       ),
     );
   }

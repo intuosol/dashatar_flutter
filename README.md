@@ -1,6 +1,6 @@
 # Dashatar Flutter
 
-A Flutter package that provides an API for using [Dashatars](https://github.com/PersianFlutter/dashatars) in Flutter projects.
+A Flutter package that provides an API for using Dash avatars ([Dashatars](https://github.com/PersianFlutter/dashatars)) in Flutter projects.
 
 Try it out in the [example app](https://intuosol.github.io/dashatar_flutter/).
 
@@ -60,6 +60,6 @@ flutter run
 
 ## Attribution
 
-The dashatar images were originally created by the Persian Flutter community and are used with permission:
+The dashatar images were originally created by the Persian Flutter community:
 
 - Repository: https://github.com/PersianFlutter/dashatars
