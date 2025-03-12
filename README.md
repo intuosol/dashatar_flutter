@@ -2,22 +2,15 @@
 
 A Flutter package that provides an API for using [Dashatars](https://github.com/PersianFlutter/dashatars) in Flutter projects.
 
+Try it out in the [example app](https://intuosol.github.io/dashatar_flutter/).
+
 ## Features
 
-- Generate Persian/Iranian-themed avatars
-- Choose from different dashatar types (Designer, Developer, Manager)
+- Generate Dash avatars (Dashatars)
+- Choose from different dashatar types (Silhouette, Basic, Designer, Developer, Manager)
 - Use random or specific dashatar variants
 - Customize size and background color
 - Simple and flexible API
-
-## Getting Started
-
-Add the package to your pubspec.yaml:
-
-```yaml
-dependencies:
-  dashatar_flutter: ^0.1.0
-```
 
 ## Usage
 
@@ -36,7 +29,7 @@ Dashatar(
 Dashatar.random()
 
 // Create a basic dashatar (middle style)
-Dashatar.basic(type: DashatarType.designer)
+Dashatar.basic()
 
 // Create a silhouette
 Dashatar.silhouette()
@@ -68,9 +61,5 @@ flutter run
 ## Attribution
 
 The dashatar images were originally created by the Persian Flutter community and are used with permission:
-- Website: https://dashatar-dev.web.app/
+
 - Repository: https://github.com/PersianFlutter/dashatars
-
-## License
-
-This package is licensed under the MIT License - see the LICENSE file for details.
