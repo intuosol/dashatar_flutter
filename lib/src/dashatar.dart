@@ -7,30 +7,28 @@ class Dashatar extends StatelessWidget {
   /// Creates a dashatar from a specific index/variant
   ///
   /// Each dashatar type has 49 different variants (0-48)
-  /// Set [avoidRepeatedImages] to false if you specifically want certain variants
-  /// that can look similar across types
   const Dashatar({
     super.key,
     required int index,
     this.type = DashatarType.developer,
     this.size,
     this.backgroundColor = Colors.transparent,
-    this.avoidRepeatedImages = true,
   }) : _variant = index % 49,
        _isBasic = false,
+       avoidRepeatedImages = false,
        _isSilhouette = false;
 
   /// Creates a random dashatar
   ///
   /// If [allowBasic] is true, the basic variant might be chosen.
-  /// If [avoidRepeatedImages] is true, certain variants that look similar
-  /// across different types will be avoided
+  /// If [avoidRepeatedImages] is true, variants that are the same across
+  /// different types will be avoided
   factory Dashatar.random({
     Key? key,
     double? size,
     Color backgroundColor = Colors.transparent,
     bool allowBasic = false,
-    bool avoidRepeatedImages = true,
+    bool avoidRepeatedImages = false,
   }) {
     // There are 49 valid combinations
     final int count = allowBasic ? 49 : 48;
@@ -56,7 +54,6 @@ class Dashatar extends StatelessWidget {
     Key? key,
     double? size,
     Color backgroundColor = Colors.transparent,
-    bool avoidRepeatedImages = true,
   }) {
     return Dashatar._internal(
       key: key,
@@ -66,7 +63,7 @@ class Dashatar extends StatelessWidget {
       variant: 24, // The variant for the basic combination
       isBasic: true,
       isSilhouette: false,
-      avoidRepeatedImages: avoidRepeatedImages,
+      avoidRepeatedImages: false,
     );
   }
 

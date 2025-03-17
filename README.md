@@ -1,8 +1,18 @@
-# Dashatar Flutter
+# Dashatar Flutter <img src="https://raw.githubusercontent.com/intuosol/intuosol_design_system/main/assets/logos/by_intuosol.png" alt="Icon" width="250" style="margin-left: 20px;">
+
+[![platform](https://img.shields.io/badge/platform-flutter-blue.svg)](https://flutter.dev)
+[![pub package](https://img.shields.io/pub/v/dashatar_flutter.svg)](https://pub.dev/packages/dashatar_flutter)
+[![pub points](https://img.shields.io/pub/points/dashatar_flutter)](https://pub.dev/packages/dashatar_flutter/score)
+[![documentation](https://img.shields.io/badge/api-documentation-blue.svg)](https://pub.dev/documentation/dashatar_flutter)
+[![interactive demo](https://img.shields.io/badge/interactive-demo-white.svg)](https://intuosol.github.io/dashatar_flutter/)
+[![last updated](https://img.shields.io/github/last-commit/intuosol/dashatar_flutter.svg)](https://github.com/intuosol/dashatar_flutter/commits/main)
+[![by](https://img.shields.io/badge/by-IntuoSol-success.svg)](https://intuosol.com)
 
 A Flutter package that provides an API for using Dash avatars ([Dashatars](https://github.com/PersianFlutter/dashatars)) in Flutter projects.
 
-Try it out in the [example app](https://intuosol.github.io/dashatar_flutter/).
+Try it out in the [demo app](https://intuosol.github.io/dashatar_flutter/).
+
+<img src="./assets/dashatars/Dashatars.png" width="250">
 
 ## Features
 
@@ -28,7 +38,7 @@ Dashatar(
 // Create a random dashatar
 Dashatar.random()
 
-// Create a basic dashatar (middle style)
+// Create a basic dashatar
 Dashatar.basic()
 
 // Create a silhouette
@@ -45,17 +55,6 @@ Dashatar(
   size: 100,
   backgroundColor: Colors.blue.shade100,
 )
-```
-
-## Example
-
-Check out the included example app for a complete demonstration of the package features.
-
-Run the example with:
-
-```bash
-cd example
-flutter run
 ```
 
 ## Attribution

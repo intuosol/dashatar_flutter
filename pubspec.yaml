@@ -1,7 +1,21 @@
 name: dashatar_flutter
 description: A Flutter package that provides an API for using Dash avatars (Dashatars) in Flutter projects.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/intuosol/dashatar_flutter
+repository: https://github.com/intuosol/dashatar_flutter
+
+topics:
+  - dash
+  - avatar
+  - dashatar
+  - assets
+
+example:
+  path: example
+
+screenshots:
+  - description: Dashatars
+    path: assets/dashatars/Dashatars.png
 
 environment:
   sdk: ^3.7.0
