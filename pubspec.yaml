@@ -15,7 +15,7 @@ example:
 
 screenshots:
   - description: Dashatars
-    path: assets/dashatars/Dashatars.png
+    path: images/dashatars.png
 
 environment:
   sdk: ^3.7.0

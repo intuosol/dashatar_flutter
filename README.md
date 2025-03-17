@@ -12,7 +12,7 @@ A Flutter package that provides an API for using Dash avatars ([Dashatars](https
 
 Try it out in the [demo app](https://intuosol.github.io/dashatar_flutter/).
 
-<img src="./assets/dashatars/Dashatars.png" width="250">
+<img src="./images/dashatars.png" width="250">
 
 ## Features
 
