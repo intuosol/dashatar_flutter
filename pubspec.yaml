@@ -14,7 +14,7 @@ example:
   path: example
 
 screenshots:
-  - description: Dashatars
+  - description: Dashatar preview
     path: images/dashatars.png
 
 environment:
