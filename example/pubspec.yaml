@@ -11,7 +11,8 @@ dependencies:
     sdk: flutter
   dashatar_flutter:
     path: ../
-  intuosol_design_system: ^0.0.2
+  intuosol_design_system: ^0.3.0
+  widget_snippet: ^0.1.0
 
 dev_dependencies:
   flutter_test:

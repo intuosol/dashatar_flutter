@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:dashatar_flutter/dashatar_flutter.dart';
+import 'package:dashatar_flutter_example/dashatar_source_code.dart';
 import 'package:flutter/material.dart';
+import 'package:widget_snippet/widget_snippet.dart';
 
+/// Displays a customizer for the dashatar
 class CustomizerTab extends StatefulWidget {
   const CustomizerTab({super.key});
 
@@ -11,10 +14,16 @@ class CustomizerTab extends StatefulWidget {
 }
 
 class _CustomizerTabState extends State<CustomizerTab> {
+  /// The current dashatar type
   DashatarType _type = DashatarType.developer;
-  int _variantIndex = 5;
+
+  /// The current variant index
+  int _variantIndex = 25;
+
+  /// The current background color
   Color _backgroundColor = Colors.transparent;
 
+  /// Background colors to choose from
   List<Color> get _colors => [
     Colors.transparent,
     Colors.red.shade100,
@@ -24,6 +33,17 @@ class _CustomizerTabState extends State<CustomizerTab> {
     Colors.purple.shade100,
   ];
 
+  /// Color names (used for the widget snippet)
+  List<String> get _colorNames => [
+    'transparent',
+    'red.shade100',
+    'blue.shade100',
+    'green.shade100',
+    'yellow.shade100',
+    'purple.shade100',
+  ];
+
+  /// Randomizes the dashatar parameters
   void _randomize() {
     setState(() {
       _type = DashatarType.values[Random().nextInt(DashatarType.values.length)];
@@ -32,7 +52,15 @@ class _CustomizerTabState extends State<CustomizerTab> {
     });
   }
 
-  @override
+  /// Builds the dashatar with the current parameters
+  Dashatar _buildDashatar() {
+    return Dashatar(
+      index: _variantIndex,
+      type: _type,
+      backgroundColor: _backgroundColor,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -49,12 +77,7 @@ class _CustomizerTabState extends State<CustomizerTab> {
                 color: Theme.of(context).colorScheme.surfaceContainerHighest,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Dashatar(
-                index: _variantIndex,
-                type: _type,
-                backgroundColor: _backgroundColor,
-                avoidRepeatedImages: false,
-              ),
+              child: _buildDashatar(),
             ),
           ),
 
@@ -75,16 +98,39 @@ class _CustomizerTabState extends State<CustomizerTab> {
                   children: [
                     const SizedBox(height: 16),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
-                          'Dashatar Type',
+                          'Customize',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
+                        const Spacer(),
+                        // Shows the widget snippet for the current dashatar
+                        // when tapped
+                        IconButton.outlined(
+                          visualDensity: VisualDensity.compact,
+                          onPressed:
+                              () => WidgetSnippet.showModal(
+                                context: context,
+                                widget: _buildDashatar(),
+                                config: WidgetSnippetConfig(
+                                  title: 'Dashatar Code Snippet',
+                                ),
+                                sourceCode: DashatarSourceCode.custom(
+                                  index: _variantIndex,
+                                  type: _type,
+                                  colorName:
+                                      _colorNames[_colors.indexOf(
+                                        _backgroundColor,
+                                      )],
+                                ),
+                              ),
+                          icon: const Icon(Icons.code),
+                        ),
+                        const SizedBox(width: 8),
+                        // Randomizes the dashatar parameters when tapped
                         ElevatedButton(
                           onPressed: _randomize,
                           child: const Text('Randomize'),
@@ -162,6 +208,7 @@ class _CustomizerTabState extends State<CustomizerTab> {
     );
   }
 
+  /// Builds a color option
   Widget _colorOption(Color color) {
     bool isSelected = color == _backgroundColor;
     return InkWell(
@@ -176,7 +223,10 @@ class _CustomizerTabState extends State<CustomizerTab> {
         decoration: BoxDecoration(
           color: color,
           border: Border.all(
-            color: isSelected ? Colors.blue : Colors.grey,
+            color:
+                isSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
             width: isSelected ? 3 : 1,
           ),
           borderRadius: BorderRadius.circular(8),

@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return IntuoSolApp(
       title: 'Dashatar Flutter Demo',
-      theme: IntuoSolTheme.lightTheme,
+      themeMode: ThemeMode.light,
       home: const MyHomePage(),
     );
   }
@@ -30,14 +30,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Dashatar Flutter Demo')),
+    return IntuoSolScaffold(
+      appBar: AppBar(
+        title: const Text('Dashatar Flutter Demo'),
+        actions: [ThemeModeButton()],
+      ),
       body: DefaultTabController(
         length: 2,
         child: Column(
           children: [
             TabBar(
               labelColor: Theme.of(context).colorScheme.primary,
+              indicatorSize: TabBarIndicatorSize.tab,
               tabs: const [Tab(text: 'Gallery'), Tab(text: 'Customizer')],
             ),
             Expanded(
@@ -48,10 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: IntuoSolButtons.floatingAboutPackage(
         context: context,
-        packageName: 'Dashatar Flutter',
+        packageName: 'dashatar_flutter',
         description:
             'A Flutter package that provides an API for using Dash avatars (Dashatars) in Flutter projects.',
-        pubDevLink: 'https://pub.dev/packages/dashatar_flutter',
       ),
     );
   }
