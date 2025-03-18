@@ -59,6 +59,6 @@ Dashatar(
 
 ## Attribution
 
-The dashatar images were originally created by the Persian Flutter community:
+The dashatar images used in this package are from:
 
-- Repository: https://github.com/PersianFlutter/dashatars
+Repository: https://github.com/PersianFlutter/dashatars
